@@ -11,4 +11,9 @@
 #  updated_at :datetime         not null
 #
 class Director < ApplicationRecord
+  has_many :movies
+
+  def filmography
+    self.movies
+  end
 end

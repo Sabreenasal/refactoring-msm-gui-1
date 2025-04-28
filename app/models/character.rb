@@ -10,4 +10,10 @@
 #  movie_id   :integer
 #
 class Character < ApplicationRecord
+  has_many :appearances
+  has_many :movies, through: :appearances
+
+  def movie
+    self.movies.order(release_date: :desc).first
+  end
 end
